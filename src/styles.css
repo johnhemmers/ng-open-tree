@@ -4,6 +4,10 @@
   width: 150px;
 }
 
+.node-menu ul {
+  list-style-type: none;
+}
+
 .node-menu .node-menu-content {
   width: 100%;
   padding: 5px;
@@ -16,3 +20,38 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   z-index: 999;
 }
+
+.node-label {
+  display: inline-block;
+}
+
+.pop-up-menu-host {
+  display: inline-block;
+}
+
+.component-host {
+}
+
+.collapse-icon {
+  width: 25px;
+  display: inline-block;
+  line-height: 1px;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.collapse-icon.is-expanded:before {
+  content: '\25BC';
+  color: #757575;
+}
+
+.collapse-icon.is-collapsed:before {
+  content: '\25B6';
+  color: #757575;
+}
+
+.collapse-icon.not-root:before {
+  content: '-';
+}
+
+

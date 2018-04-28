@@ -1,0 +1,15 @@
+<div>
+  <div class="collapse-icon" (click)="onCollapseElementClick($event)"  [ngClass]="{
+    'is-expanded': model?.node?.expanded && model?.childNodes.length > 0,
+    'is-collapsed': !model?.node?.expanded && model?.childNodes.length > 0,
+    'not-root': !model.childNodes}">
+  </div>
+  <div class="node-label" (click)="onLabelClick($event)">{{model?.node?.label || 'default label'}}</div>
+  <div class="pop-up-menu-host" appPopUpMenuHost></div>
+  <div class="component-host" appComponentHost></div>
+  <ng-container *ngIf="model?.node?.expanded">
+    <div *ngFor="let childNode of model?.childNodes">
+      <app-tree [model]="childNode" ></app-tree>
+    </div>
+  </ng-container>
+</div>

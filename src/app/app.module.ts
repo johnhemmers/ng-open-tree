@@ -9,7 +9,8 @@ import {InputNodeComponent} from './input-node/input-node.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {PopUpMenuComponent} from './menu/pop-up-menu.component';
 import {PopUpMenuHostDirective} from './tree/pop-up-menu-host.directive';
-import {PopUpMenuMappingService} from './pop-menu-component-mapping-service/pop-up-menu-mapping.service';
+import {PopUpMenuMappingService} from './pop-up-menu-mapping-service/pop-up-menu-mapping.service';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {PopUpMenuMappingService} from './pop-menu-component-mapping-service/pop-
   ],
   imports: [
     ReactiveFormsModule,
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ],
   providers: [ComponentMappingService, FormBuilder, PopUpMenuMappingService],
   bootstrap: [AppComponent]
