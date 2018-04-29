@@ -1,15 +1,19 @@
 <div>
-  <div class="collapse-icon" (click)="onCollapseElementClick($event)"  [ngClass]="{
-    'is-expanded': model?.node?.expanded && model?.childNodes.length > 0,
-    'is-collapsed': !model?.node?.expanded && model?.childNodes.length > 0,
-    'not-root': !model.childNodes}">
+  <div class="header-wrapper">
+    <div class="node-collapse-icon" (click)="onCollapseElementClick($event)"  [ngClass]="{
+      'is-expanded': model?.node?.expanded && model?.childNodes?.length > 0,
+      'is-collapsed': !model?.node?.expanded && model?.childNodes?.length > 0,
+      'not-root': !model?.childNodes?.length }">
+    </div>
+    <div class="node-header-host" appNodeHeaderHost (click)="onHeaderClick($event)"></div>
+    <div class="node-pop-up-menu-host" appNodePopUpMenuHost></div>
   </div>
-  <div class="node-label" (click)="onLabelClick($event)">{{model?.node?.label || 'default label'}}</div>
-  <div class="pop-up-menu-host" appPopUpMenuHost></div>
-  <div class="component-host" appComponentHost></div>
-  <ng-container *ngIf="model?.node?.expanded">
-    <div *ngFor="let childNode of model?.childNodes">
+  <div class="component-wrapper">
+    <div class="component-host" appNodeComponentHost></div>
+  </div>
+  <div class="child-nodes-wrapper" *ngIf="model?.node?.expanded">
+    <div class="child-node-wrapper" *ngFor="let childNode of model?.childNodes">
       <app-tree [model]="childNode" ></app-tree>
     </div>
-  </ng-container>
+  </div>
 </div>

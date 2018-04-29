@@ -2,38 +2,44 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {TreeComponent} from './tree/tree.component';
-import {ComponentHostDirective} from './tree/component-host.directive';
+import {NodeComponentHostDirective} from './tree/node-component-host.directive';
 import {SimpleNodeComponent} from './simple-node/simple-node.component';
-import {ComponentMappingService} from './component-mapping-service/component-mapping.service';
+import {ComponentMappingService} from './mapping-service/component-mapping.service';
 import {InputNodeComponent} from './input-node/input-node.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {PopUpMenuComponent} from './menu/pop-up-menu.component';
-import {PopUpMenuHostDirective} from './tree/pop-up-menu-host.directive';
-import {PopUpMenuMappingService} from './pop-up-menu-mapping-service/pop-up-menu-mapping.service';
+import {NodePopUpMenuHostDirective} from './tree/node-pop-up-menu-host.directive';
+import {PopUpMenuMappingService} from './mapping-service/pop-up-menu-mapping.service';
 import {CommonModule} from '@angular/common';
+import { NodeHeaderHostDirective } from './tree/node-header-host.directive';
+import { HeaderLabelComponent } from './header-label/header-label.component';
+import {HeaderMappingService} from './mapping-service/header-mapping.service';
 
 
 @NgModule({
   entryComponents: [
     SimpleNodeComponent,
     InputNodeComponent,
-    PopUpMenuComponent
+    PopUpMenuComponent,
+    HeaderLabelComponent
   ],
   declarations: [
     AppComponent,
     TreeComponent,
-    ComponentHostDirective,
-    PopUpMenuHostDirective,
+    NodeComponentHostDirective,
+    NodePopUpMenuHostDirective,
     SimpleNodeComponent,
     InputNodeComponent,
-    PopUpMenuComponent
+    PopUpMenuComponent,
+    NodeHeaderHostDirective,
+    HeaderLabelComponent
   ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
     CommonModule
   ],
-  providers: [ComponentMappingService, FormBuilder, PopUpMenuMappingService],
+  providers: [ComponentMappingService, FormBuilder, PopUpMenuMappingService, HeaderMappingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

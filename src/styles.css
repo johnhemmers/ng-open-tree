@@ -8,7 +8,21 @@
   list-style-type: none;
 }
 
+.header-wrapper {
+  display: flex;
+}
+
+.component-wrapper {
+  padding-left: 35px;
+}
+
+.child-nodes-wrapper {
+  margin-left: 25px;
+}
+
 .node-menu .node-menu-content {
+  left: 200px;
+  top: -25px;
   width: 100%;
   padding: 5px;
   position: absolute;
@@ -32,25 +46,26 @@
 .component-host {
 }
 
-.collapse-icon {
-  width: 25px;
+.node-header-host {
   display: inline-block;
-  line-height: 1px;
-  padding: 0 5px;
-  font-weight: bold;
 }
 
-.collapse-icon.is-expanded:before {
+.node-collapse-icon {
+  width: 25px;
+  padding: 0 5px;
+}
+
+.node-collapse-icon.is-expanded:before {
   content: '\25BC';
   color: #757575;
 }
 
-.collapse-icon.is-collapsed:before {
+.node-collapse-icon.is-collapsed:before {
   content: '\25B6';
   color: #757575;
 }
 
-.collapse-icon.not-root:before {
+.node-collapse-icon.not-root:before {
   content: '-';
 }
 
