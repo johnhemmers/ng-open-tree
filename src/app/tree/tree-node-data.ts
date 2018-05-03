@@ -1,3 +1,9 @@
 export interface TreeNodeData {
-  data: any;
+  header?: string,
+  headerData?: any,
+  popUpMenu?: string,
+  popUpMenuData?: any,
+  component?: string,
+  componentData?: any,
+  expanded?: boolean
 }

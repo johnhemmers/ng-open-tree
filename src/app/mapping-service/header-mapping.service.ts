@@ -12,5 +12,4 @@ export class HeaderMappingService {
   public getType(type: string){
     return this.mappings[type] || HeaderLabelComponent;
   }
-
 }

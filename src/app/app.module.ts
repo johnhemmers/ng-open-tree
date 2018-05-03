@@ -14,6 +14,7 @@ import {CommonModule} from '@angular/common';
 import { NodeHeaderHostDirective } from './tree/node-header-host.directive';
 import { HeaderLabelComponent } from './header-label/header-label.component';
 import {HeaderMappingService} from './mapping-service/header-mapping.service';
+import { DoubleInputNodeComponent } from './double-input-node/double-input-node.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {HeaderMappingService} from './mapping-service/header-mapping.service';
     SimpleNodeComponent,
     InputNodeComponent,
     PopUpMenuComponent,
-    HeaderLabelComponent
+    HeaderLabelComponent,
+    DoubleInputNodeComponent
   ],
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import {HeaderMappingService} from './mapping-service/header-mapping.service';
     InputNodeComponent,
     PopUpMenuComponent,
     NodeHeaderHostDirective,
-    HeaderLabelComponent
+    HeaderLabelComponent,
+    DoubleInputNodeComponent
   ],
   imports: [
     ReactiveFormsModule,

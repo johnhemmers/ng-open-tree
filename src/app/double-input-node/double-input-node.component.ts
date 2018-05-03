@@ -4,19 +4,19 @@ import {TreeNodeComponent} from '../tree/tree-node-component';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-input-node',
-  templateUrl: './input-node.component.html',
-  styleUrls: ['./input-node.component.css']
+  selector: 'app-double-input-node',
+  templateUrl: './double-input-node.component.html',
+  styleUrls: ['./double-input-node.component.css']
 })
-export class InputNodeComponent implements OnInit, TreeNodeComponent {
+export class DoubleInputNodeComponent implements OnInit, TreeNodeComponent {
   @Input() data;
   form: FormGroup;
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      name: this.data
+      name1: '',
+      name2: ''
     });
-
   }
 
   ngOnInit() {

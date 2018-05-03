@@ -8,12 +8,17 @@
   list-style-type: none;
 }
 
+.node-wrapper {
+  margin: 15px 0;
+}
+
 .header-wrapper {
   display: flex;
 }
 
 .component-wrapper {
   padding-left: 35px;
+  margin: 5px 0;
 }
 
 .child-nodes-wrapper {
@@ -21,7 +26,7 @@
 }
 
 .node-menu .node-menu-content {
-  left: 200px;
+  left: 25px;
   top: -25px;
   width: 100%;
   padding: 5px;
@@ -33,6 +38,14 @@
   color: #212121;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   z-index: 999;
+}
+
+.node-menu .node-menu-content .node-menu-item:hover {
+  border-radius: 5%;
+  opacity: unset;
+  cursor: pointer;
+  background-color: #bdbdbd;
+  transition: background-color 0.5s ease-out;
 }
 
 .node-label {

@@ -1,9 +1,7 @@
+import {TreeNodeData} from './tree-node-data';
+
 export interface TreeNode {
-  header?: string,
-  headerData?: any,
-  popUpMenu?: string,
-  popUpMenuData?: any,
-  component?: string,
-  componentData?: any,
-  expanded?: boolean
+  id: string;
+  dataNode: TreeNodeData;
+  childNodes: TreeNode[];
 }

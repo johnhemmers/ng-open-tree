@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, forwardRef, Host, OnInit, Optional} from '@angular/core';
+import {TreeInterface} from '../tree/tree-interface';
+import {TreeNode} from '../tree/tree-node';
 
 @Component({
   selector: 'app-menu',
@@ -6,39 +8,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pop-up-menu.component.css']
 })
 export class PopUpMenuComponent implements OnInit {
-  public availableMenuItems: NodeMenuItem[] = [
+  public menuItems: NodeMenuItem[] = [
     {
-      name: 'New tag',
-      cssClass: 'new-tag'
+      name: 'Add Node',
+      cssClass: 'add-node'
     },
     {
-      name: 'New folder',
-      cssClass: 'new-folder'
-    },
-    {
-      name: 'Rename',
-      cssClass: 'rename'
-    },
-    {
-      name: 'Remove',
-      cssClass: 'remove'
+      name: 'Delete node',
+      cssClass: 'delete-node'
     }
   ];
 
-  constructor() { }
+  constructor(@Host() private tree: TreeInterface) { }
 
   ngOnInit() {
   }
 
   public onMenuItemSelected(e: MouseEvent, selectedMenuItem: NodeMenuItem): void {
-    // if (isLeftButtonClicked(e)) {
-    //   this.menuItemSelected.emit({
-    //     nodeMenuItemAction: selectedMenuItem.action,
-    //     nodeMenuItemSelected: selectedMenuItem.name
-    //   });
-    //
-    //   this.nodeMenuService.fireMenuEvent(e.target as HTMLElement, NodeMenuAction.Close);
-    // }
+    console.log(selectedMenuItem);
+    switch(selectedMenuItem.name){
+      case 'Add Node':
+        this.tree.addNode({
+          dataNode: {
+            header: "HeaderLabelComponent",
+            headerData: { label: "The label 1.1.1.1" },
+            component: "DoubleInputNodeComponent"
+          },
+          childNodes: []
+        } as TreeNode);
+        break;
+      case 'Delete node':
+        this.tree.deleteNode();
+        break;
+    }
   }
 }
 

@@ -1,6 +1,7 @@
-import {Component, OnInit} from "@angular/core";
-import {Tree} from "./tree/tree";
-import {HeaderLabelComponent} from './header-label/header-label.component';
+import { Component, OnInit } from "@angular/core";
+import { TreeNode } from "./tree/tree-node";
+import { HeaderLabelComponent } from "./header-label/header-label.component";
+import {numberTreeNodes} from './tree/tree-utils';
 
 @Component({
   selector: "app-root",
@@ -11,12 +12,65 @@ export class AppComponent implements OnInit {
   // title = "app";
 
   public treeModel = {
-    node: { header: "HeaderLabelComponent", headerData: {label: 'The label 1'}, component: "InputNodeComponent" },
+    dataNode: {
+      header: "HeaderLabelComponent",
+      headerData: { label: "The label 1" },
+      component: "InputNodeComponent",
+      componentData: {name: "hello"}
+    },
     childNodes: [
-      { childNodes: [], node: { header: "HeaderLabelComponent", headerData: {label: 'The label 1.1'}, component: "InputNodeComponent" } },
-      { childNodes: [], node: { header: "HeaderLabelComponent", headerData: {label: 'The label 1.2'}, component: "InputNodeComponent" } }
+      {
+        dataNode: {
+          header: "HeaderLabelComponent",
+          headerData: { label: "The label 1.1" },
+          component: "InputNodeComponent",
+          componentData: {name: "hello"}
+        },
+        childNodes: [
+          {
+            dataNode: {
+              header: "HeaderLabelComponent",
+              headerData: { label: "The label 1.1.1" },
+              component: "InputNodeComponent",
+              componentData: {name: "hello"}
+            },
+            childNodes: [
+              {
+                dataNode: {
+                  header: "HeaderLabelComponent",
+                  headerData: { label: "The label 1.1.1.1" },
+                  component: "DoubleInputNodeComponent"
+                },
+                childNodes: []
+              },
+              {
+                dataNode: {
+                  header: "HeaderLabelComponent",
+                  headerData: { label: "The label 1.1.1.1" },
+                  component: "DoubleInputNodeComponent"
+                },
+                childNodes: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        dataNode: {
+          header: "HeaderLabelComponent",
+          headerData: { label: "The label 1.2" },
+          component: "InputNodeComponent",
+          componentData: {name: "hello"}
+        },
+        childNodes: []
+      }
     ]
-  } as Tree;
+  } as TreeNode;
+
+  public constructor() {
+    numberTreeNodes(this.treeModel, '', 0);
+    console.dir(this.treeModel);
+  }
 
   ngOnInit() {}
 }

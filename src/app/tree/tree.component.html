@@ -1,19 +1,19 @@
-<div>
-  <div class="header-wrapper">
+<div class="node-wrapper" (contextmenu)="onHeaderRightClick($event)">
+  <div class="header-wrapper" >
     <div class="node-collapse-icon" (click)="onCollapseElementClick($event)"  [ngClass]="{
-      'is-expanded': model?.node?.expanded && model?.childNodes?.length > 0,
-      'is-collapsed': !model?.node?.expanded && model?.childNodes?.length > 0,
+      'is-expanded': model?.dataNode?.expanded && model?.childNodes?.length > 0,
+      'is-collapsed': !model?.dataNode?.expanded && model?.childNodes?.length > 0,
       'not-root': !model?.childNodes?.length }">
     </div>
-    <div class="node-header-host" appNodeHeaderHost (click)="onHeaderClick($event)"></div>
+    <div class="node-header-host" appNodeHeaderHost></div>
     <div class="node-pop-up-menu-host" appNodePopUpMenuHost></div>
   </div>
   <div class="component-wrapper">
     <div class="component-host" appNodeComponentHost></div>
   </div>
-  <div class="child-nodes-wrapper" *ngIf="model?.node?.expanded">
+  <div class="child-nodes-wrapper" *ngIf="model?.dataNode?.expanded">
     <div class="child-node-wrapper" *ngFor="let childNode of model?.childNodes">
-      <app-tree [model]="childNode" ></app-tree>
+      <app-tree [model]="childNode"></app-tree>
     </div>
   </div>
 </div>
