@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TreeNodeComponent} from '../tree/tree-node-component';
+import {Observable} from 'rxjs/Observable';
+import {empty} from 'rxjs/observable/empty';
 
 @Component({
   selector: 'app-header-label',
@@ -14,4 +16,7 @@ export class HeaderLabelComponent implements OnInit, TreeNodeComponent {
   ngOnInit() {
   }
 
+  formValueChanges$(): Observable<any> {
+    return empty();
+  }
 }
