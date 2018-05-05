@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {TreeNodeComponent} from '../tree/tree-node-component';
+import {TreeComponentControl} from '../tree/tree-component-control';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
   templateUrl: './input-node.component.html',
   styleUrls: ['./input-node.component.css']
 })
-export class InputNodeComponent implements OnInit, TreeNodeComponent {
+export class InputNodeComponent implements OnInit, TreeComponentControl {
   @Input() data;
   form: FormGroup;
 

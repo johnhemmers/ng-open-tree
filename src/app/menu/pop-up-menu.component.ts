@@ -1,5 +1,5 @@
 import {Component, Host, OnInit} from '@angular/core';
-import {TreeInterface} from '../tree/tree-interface';
+import {TreeNodeControl} from '../tree/tree-node-control';
 import {TreeNode} from '../tree/tree-node';
 
 @Component({
@@ -19,7 +19,7 @@ export class PopUpMenuComponent implements OnInit {
     }
   ];
 
-  constructor(@Host() private tree: TreeInterface) { }
+  constructor(@Host() private tree: TreeNodeControl) { }
 
   ngOnInit() {
   }

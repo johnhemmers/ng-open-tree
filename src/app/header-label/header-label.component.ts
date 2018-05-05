@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TreeNodeComponent} from '../tree/tree-node-component';
+import {TreeComponentControl} from '../tree/tree-component-control';
 import {Observable} from 'rxjs/Observable';
 import {empty} from 'rxjs/observable/empty';
 
@@ -8,7 +8,7 @@ import {empty} from 'rxjs/observable/empty';
   templateUrl: './header-label.component.html',
   styleUrls: ['./header-label.component.css']
 })
-export class HeaderLabelComponent implements OnInit, TreeNodeComponent {
+export class HeaderLabelComponent implements OnInit, TreeComponentControl {
   @Input() data;
 
   constructor() { }
