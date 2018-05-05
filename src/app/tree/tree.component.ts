@@ -25,7 +25,6 @@ import {nodeId} from './tree-utils';
 @Component({
   selector: "app-tree",
   templateUrl: "./tree.component.html",
-  styleUrls: ["./tree.component.css"],
   providers: [
     { provide: TreeNodeControl, useExisting: forwardRef(() => TreeComponent) }
   ]
