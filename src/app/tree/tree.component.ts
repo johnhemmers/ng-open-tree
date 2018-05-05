@@ -18,19 +18,18 @@ import {NodePopUpMenuHostDirective} from "./node-pop-up-menu-host.directive";
 import {PopUpMenuMappingService} from "../mapping-service/pop-up-menu-mapping.service";
 import {HeaderMappingService} from "../mapping-service/header-mapping.service";
 import {NodeHeaderHostDirective} from "./node-header-host.directive";
-import {TreeNodeComponent} from "./tree-node-component";
-import {TreeInterface} from "./tree-interface";
+import {TreeComponentControl} from "./tree-component-control";
+import {TreeNodeControl} from "./tree-node-control";
 import {nodeId} from './tree-utils';
 
 @Component({
   selector: "app-tree",
   templateUrl: "./tree.component.html",
-  styleUrls: ["./tree.component.css"],
   providers: [
-    { provide: TreeInterface, useExisting: forwardRef(() => TreeComponent) }
+    { provide: TreeNodeControl, useExisting: forwardRef(() => TreeComponent) }
   ]
 })
-export class TreeComponent implements OnInit, OnDestroy, TreeInterface {
+export class TreeComponent implements OnInit, OnDestroy, TreeNodeControl {
   @Input() model: TreeNode;
   @ViewChild(NodeHeaderHostDirective) headerHost: NodeHeaderHostDirective;
   @ViewChild(NodePopUpMenuHostDirective)
@@ -50,7 +49,7 @@ export class TreeComponent implements OnInit, OnDestroy, TreeInterface {
     private componentMappingService: ComponentMappingService,
     @SkipSelf()
     @Optional()
-    private parentTree: TreeInterface
+    private parentTree: TreeNodeControl
   ) {}
 
   ngOnInit() {
@@ -72,7 +71,7 @@ export class TreeComponent implements OnInit, OnDestroy, TreeInterface {
     const componentRef = this.headerHost.nodeHeaderContainer.createComponent(
       componentFactory
     );
-    (<TreeNodeComponent>componentRef.instance).data = this.model.dataNode.headerData;
+    (<TreeComponentControl>componentRef.instance).data = this.model.dataNode.headerData;
   }
 
   loadComponent() {
@@ -84,8 +83,8 @@ export class TreeComponent implements OnInit, OnDestroy, TreeInterface {
     const componentRef = this.componentHost.nodeComponentContainer.createComponent(
       componentFactory
     );
-    (<TreeNodeComponent>componentRef.instance).data = this.model.dataNode.componentData;
-    (<TreeNodeComponent>componentRef.instance).formValueChanges$().subscribe((value: any) => {
+    (<TreeComponentControl>componentRef.instance).data = this.model.dataNode.componentData;
+    (<TreeComponentControl>componentRef.instance).formValueChanges$().subscribe((value: any) => {
       this.model.dataNode.componentData = value;
     })
   }
