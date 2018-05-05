@@ -11,16 +11,16 @@ import {
   SkipSelf,
   ViewChild
 } from "@angular/core";
-import { TreeNode } from "./tree-node";
-import { ComponentMappingService } from "../mapping-service/component-mapping.service";
-import { NodeComponentHostDirective } from "./node-component-host.directive";
-import { NodePopUpMenuHostDirective } from "./node-pop-up-menu-host.directive";
-import { PopUpMenuMappingService } from "../mapping-service/pop-up-menu-mapping.service";
-import { HeaderMappingService } from "../mapping-service/header-mapping.service";
-import { NodeHeaderHostDirective } from "./node-header-host.directive";
-import { TreeNodeComponent } from "./tree-node-component";
-import { TreeInterface } from "./tree-interface";
-import {TreeNodeData} from './tree-node-data';
+import {TreeNode} from "./tree-node";
+import {ComponentMappingService} from "../mapping-service/component-mapping.service";
+import {NodeComponentHostDirective} from "./node-component-host.directive";
+import {NodePopUpMenuHostDirective} from "./node-pop-up-menu-host.directive";
+import {PopUpMenuMappingService} from "../mapping-service/pop-up-menu-mapping.service";
+import {HeaderMappingService} from "../mapping-service/header-mapping.service";
+import {NodeHeaderHostDirective} from "./node-header-host.directive";
+import {TreeNodeComponent} from "./tree-node-component";
+import {TreeInterface} from "./tree-interface";
+import {nodeId} from './tree-utils';
 
 @Component({
   selector: "app-tree",
@@ -112,7 +112,6 @@ export class TreeComponent implements OnInit, OnDestroy, TreeInterface {
 
   closeMenu(e: MouseEvent | KeyboardEvent) {
     if (this.popUpMenuRef) {
-      console.log("in global handler");
       const containingTarget = this.popUpMenuRef.location.nativeElement.contains(
         e.target
       );
@@ -145,6 +144,7 @@ export class TreeComponent implements OnInit, OnDestroy, TreeInterface {
 
   addNode(treeNode: TreeNode): void {
     this.popUpMenuRef.destroy();
+    treeNode.id = nodeId(this.model.id, this.model.childNodes ? this.model.childNodes.length + 1 : 1);
     this.model.childNodes.push(treeNode);
     this.model.dataNode.expanded = true;
   }

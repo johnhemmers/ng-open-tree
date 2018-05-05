@@ -1,4 +1,6 @@
-# NgToTree
+# ng-open-tree
+
+A tree written in Angular 2+ that expects external reactive form components and displays them in a foldable tree structure.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 

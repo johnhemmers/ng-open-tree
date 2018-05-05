@@ -1,4 +1,4 @@
-import {Component, forwardRef, Host, OnInit, Optional} from '@angular/core';
+import {Component, Host, OnInit} from '@angular/core';
 import {TreeInterface} from '../tree/tree-interface';
 import {TreeNode} from '../tree/tree-node';
 
@@ -26,12 +26,12 @@ export class PopUpMenuComponent implements OnInit {
 
   public onMenuItemSelected(e: MouseEvent, selectedMenuItem: NodeMenuItem): void {
     console.log(selectedMenuItem);
-    switch(selectedMenuItem.name){
+    switch(selectedMenuItem.name) {
       case 'Add Node':
         this.tree.addNode({
           dataNode: {
             header: "HeaderLabelComponent",
-            headerData: { label: "The label 1.1.1.1" },
+            headerData: { label: "The label x.x.x.x" },
             component: "DoubleInputNodeComponent"
           },
           childNodes: []

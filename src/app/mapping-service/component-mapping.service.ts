@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Type} from '@angular/core';
 import {SimpleNodeComponent} from '../simple-node/simple-node.component';
 import {InputNodeComponent} from '../input-node/input-node.component';
 import {DoubleInputNodeComponent} from '../double-input-node/double-input-node.component';
@@ -13,7 +13,7 @@ export class ComponentMappingService {
 
   constructor() { }
 
-  public getType(type: string) {
+  public getType(type: string): Type<any> {
     return this.mappings[type] || SimpleNodeComponent;
   }
 }

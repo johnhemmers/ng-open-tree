@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Type} from '@angular/core';
 import {PopUpMenuComponent} from '../menu/pop-up-menu.component';
 
 @Injectable()
@@ -9,7 +9,7 @@ export class PopUpMenuMappingService {
 
   constructor() { }
 
-  public getType(type: string) {
+  public getType(type: string): Type<any> {
     return this.mappings[type] || PopUpMenuComponent;
   }
 }
